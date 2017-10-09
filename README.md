@@ -1,2 +1,0 @@
-# movencash
-movencash xamarin project
