@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.ItemPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listView" ItemsSource="{Binding items_list}" HasUnevenRows="True" ItemTapped="SelectedItem">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding titre}"/>
+                                <Label Text="{Binding prix}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Nouveau element" Clicked="NouveauElement"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

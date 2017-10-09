@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.NouvelleAnnonce">
+    <ContentPage.Content>
+        <StackLayout>
+           
+                            <Label Text="Titre:" />
+                            <Label Text="{Binding titre}" />
+                            <Label Text="{Binding titredesc}" />
+                    
+                            <Label Text="Local:" />
+                            <Label Text="{Binding local}"/>
+                      
+                            <Label Text="Motif:" />
+                            <Label Text="{Binding motif}" />
+                     
+                            <Label Text="Acces lkj:" />
+                            <Entry Text="{Binding acces}" />
+                   
+                  
+         
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
