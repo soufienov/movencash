@@ -32,3 +32,35 @@ C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1\bin\Debug\Sys
 C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1\obj\Debug\App1.csproj.App.config
 C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1\obj\Debug\App1.Views.NouvelleAnnonce.xaml.g.cs
 C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1\obj\Debug\App1.Views.NouveauItem.xaml.g.cs
+F:\App1\App1\App1\obj\Debug\App1.csproj.App.config
+F:\App1\App1\App1\obj\Debug\App1.csprojResolveAssemblyReference.cache
+F:\App1\App1\App1\obj\Debug\App1.csproj.CoreCompileInputs.cache
+F:\App1\App1\App1\obj\Debug\App1.MainPage.xaml.g.cs
+F:\App1\App1\App1\obj\Debug\App1.App.xaml.g.cs
+F:\App1\App1\App1\obj\Debug\App1.Views.RegisterPage.xaml.g.cs
+F:\App1\App1\App1\obj\Debug\App1.Views.LoginPage.xaml.g.cs
+F:\App1\App1\App1\obj\Debug\App1.Views.ItemPage.xaml.g.cs
+F:\App1\App1\App1\obj\Debug\App1.Views.AnnoncePage.xaml.g.cs
+F:\App1\App1\App1\obj\Debug\App1.Views.NouvelleAnnonce.xaml.g.cs
+F:\App1\App1\App1\obj\Debug\App1.Views.NouveauItem.xaml.g.cs
+F:\App1\App1\App1\obj\Debug\App1.dll
+F:\App1\App1\App1\obj\Debug\App1.pdb
+F:\App1\App1\App1\bin\Debug\App1.dll.config
+F:\App1\App1\App1\bin\Debug\App1.dll
+F:\App1\App1\App1\bin\Debug\App1.pdb
+F:\App1\App1\App1\bin\Debug\Newtonsoft.Json.dll
+F:\App1\App1\App1\bin\Debug\System.Net.Http.dll
+F:\App1\App1\App1\bin\Debug\System.Net.Http.Extensions.dll
+F:\App1\App1\App1\bin\Debug\System.Net.Http.Primitives.dll
+F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Core.dll
+F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Platform.dll
+F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Xaml.dll
+F:\App1\App1\App1\bin\Debug\Newtonsoft.Json.xml
+F:\App1\App1\App1\bin\Debug\System.Net.Http.xml
+F:\App1\App1\App1\bin\Debug\System.Net.Http.Extensions.xml
+F:\App1\App1\App1\bin\Debug\System.Net.Http.Primitives.xml
+F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Core.pdb
+F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Core.xml
+F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Platform.pdb
+F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Xaml.pdb
+F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Xaml.xml

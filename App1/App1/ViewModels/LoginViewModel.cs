@@ -1,5 +1,4 @@
-﻿using Android.Util;
-using App1.Services;
+﻿using App1.Services;
 using App1.Views;
 using Newtonsoft.Json;
 using System;

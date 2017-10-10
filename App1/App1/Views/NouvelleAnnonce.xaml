@@ -4,20 +4,27 @@
              x:Class="App1.Views.NouvelleAnnonce">
     <ContentPage.Content>
         <StackLayout>
-           
-                            <Label Text="Titre:" />
-                            <Label Text="{Binding titre}" />
-                            <Label Text="{Binding titredesc}" />
+
+                
+                    <Label Text="Titre:" />
+                            <Entry Text="{Binding annonce.titre}" />
+            <Label Text="Description"/>
+            <Entry Text="{Binding annonce.titredesc}" />
                     
                             <Label Text="Local:" />
-                            <Label Text="{Binding local}"/>
+            <Entry Text="{Binding annonce.local}"/>
                       
                             <Label Text="Motif:" />
-                            <Label Text="{Binding motif}" />
-                     
-                            <Label Text="Acces lkj:" />
-                            <Entry Text="{Binding acces}" />
-                   
+            <Picker >
+                <Picker.Items>
+                    <x:String>Vente</x:String>
+                    <x:String>Demenagement</x:String>
+                    <x:String>Succession</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Acces:" />
+            <Entry Text="{Binding annonce.acces}"  />
                   
          
         </StackLayout>

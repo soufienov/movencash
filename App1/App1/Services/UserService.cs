@@ -1,5 +1,4 @@
-﻿using Android.Util;
-using App1.Models;
+﻿using App1.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -53,9 +52,10 @@ namespace App1.Services
                         mid = (string)tmpuser.mid
                     };
                 }
-                catch (Exception e) { Log.Error("st", "bad cred"); }
+                catch (Exception e) {//bad cred
+                }
             }
-            else Log.Error("st", "fail");
+            
              
            
             return "tt";

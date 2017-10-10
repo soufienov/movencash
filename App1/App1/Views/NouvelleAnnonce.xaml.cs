@@ -16,7 +16,7 @@ namespace App1.Views
         public NouvelleAnnonce()
         {
             
-                var vm = new AnnonceViewModel();
+                var vm = new NouvelleAnViewModel();
                 BindingContext = vm;
                 InitializeComponent();
             

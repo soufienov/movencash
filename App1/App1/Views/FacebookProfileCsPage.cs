@@ -7,7 +7,6 @@ using App1.Models;
 using App1.ViewModels;
 using Xamarin.Forms;
 using Device = Xamarin.Forms.Device;
-using Android.Util;
 
 namespace App1.Views
 {

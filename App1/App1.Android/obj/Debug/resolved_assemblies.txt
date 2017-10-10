@@ -1,55 +1,54 @@
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\App1.Android.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\App1.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\FormsViewGroup.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.Design.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v4.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.AppCompat.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.CardView.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.MediaRouter.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.RecyclerView.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Java.Interop.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Mono.Android.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\mscorlib.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Core.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Xml.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Xml.Linq.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.ComponentModel.Composition.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Resources.ResourceManager.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Diagnostics.Tools.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.ObjectModel.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Diagnostics.Debug.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Threading.Tasks.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Collections.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Dynamic.Runtime.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Net.Http.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Newtonsoft.Json.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.IO.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Xml.XDocument.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Globalization.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.Serialization.Primitives.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.Serialization.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.ServiceModel.Internals.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Reflection.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Linq.Expressions.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Linq.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Text.RegularExpressions.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Text.Encoding.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Threading.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Reflection.Extensions.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Text.Encoding.Extensions.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Microsoft.CSharp.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Mono.CSharp.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.ComponentModel.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Collections.Concurrent.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.InteropServices.dll
-C:\Users\user\documents\visual studio 2017\Projects\App1\App1\App1.Android\obj\Debug\android\assets\Mono.Security.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\App1.Android.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\App1.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\FormsViewGroup.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.Design.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v4.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.AppCompat.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.CardView.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.MediaRouter.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.RecyclerView.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Java.Interop.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Mono.Android.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\mscorlib.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Core.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Xml.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Xml.Linq.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.ComponentModel.Composition.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Resources.ResourceManager.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Diagnostics.Tools.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.ObjectModel.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Diagnostics.Debug.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Threading.Tasks.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Collections.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Dynamic.Runtime.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Net.Http.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Newtonsoft.Json.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.IO.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Xml.XDocument.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Globalization.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.Serialization.Primitives.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.Serialization.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.ServiceModel.Internals.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Reflection.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Linq.Expressions.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Linq.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Text.RegularExpressions.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Text.Encoding.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Threading.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Reflection.Extensions.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Text.Encoding.Extensions.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Microsoft.CSharp.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.ComponentModel.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Collections.Concurrent.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\System.Runtime.InteropServices.dll
+F:\App1\App1\App1.Android\obj\Debug\android\assets\Mono.Security.dll

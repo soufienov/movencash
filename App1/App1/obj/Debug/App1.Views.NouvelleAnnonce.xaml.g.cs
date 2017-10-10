@@ -11,8 +11,7 @@
 namespace App1.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\user\\documents\\visual studio 2017\\Projects\\App1\\App1\\App1\\Views\\Nouvelle" +
-        "Annonce.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("F:\\App1\\App1\\App1\\Views\\NouvelleAnnonce.xaml")]
     public partial class NouvelleAnnonce : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

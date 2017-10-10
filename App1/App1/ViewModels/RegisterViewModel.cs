@@ -1,6 +1,4 @@
-﻿using Android.Content.Res;
-using Android.Util;
-using App1.Services;
+﻿using App1.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +28,7 @@ namespace App1.ViewModels
                       
 
                     var resp= await userservice.Register(Name,Lname,Email,Password);
-                        Log.Error("resp", resp);
+                       
                     });
             }
         }
