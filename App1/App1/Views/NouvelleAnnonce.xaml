@@ -3,30 +3,55 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.Views.NouvelleAnnonce">
     <ContentPage.Content>
-        <StackLayout>
-
-                
-                    <Label Text="Titre:" />
-                            <Entry Text="{Binding annonce.titre}" />
+        <ScrollView>
+            <StackLayout Padding="3,3,0,0">
+           
+                            <Label Text="Titre" />
+                            <Entry Text="{Binding Ann.titre}" TextChanged="NouveauTitre" />
             <Label Text="Description"/>
-            <Entry Text="{Binding annonce.titredesc}" />
+            <Editor Text="{Binding Ann.titredesc}" TextChanged="NouvelleDesc"/>
                     
-                            <Label Text="Local:" />
-            <Entry Text="{Binding annonce.local}"/>
-                      
-                            <Label Text="Motif:" />
-            <Picker >
+                            <Label Text="Local" />
+            <Picker x:Name="localPicker" SelectedIndex='0' SelectedIndexChanged="SetLocal">
                 <Picker.Items>
-                    <x:String>Vente</x:String>
-                    <x:String>Demenagement</x:String>
-                    <x:String>Succession</x:String>
+                    <x:String>Maison</x:String>
+                    <x:String>Duplex</x:String>
+                    <x:String>Garage</x:String>
+                    <x:String>Appart</x:String>
                 </Picker.Items>
             </Picker>
 
-            <Label Text="Acces:" />
-            <Entry Text="{Binding annonce.acces}"  />
-                  
-         
-        </StackLayout>
+            <Label Text="Motif" />
+                            <Picker x:Name="motifPicker"  SelectedIndex='0' SelectedIndexChanged="SetMotif">
+                <Picker.Items>
+                    <x:String>Vente</x:String>
+                    <x:String>Succession</x:String>
+                    <x:String>Demenagement</x:String>
+                </Picker.Items>
+                            </Picker>
+            <Label Text="Categorie" />
+            <Picker x:Name="categoPicker"  SelectedIndex="1" SelectedIndexChanged="SetCategorie">
+                <Picker.Items>
+                    <x:String>Immobilier</x:String>
+                    <x:String>Meuble</x:String>
+                    <x:String>Electromenager</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Acces" />
+            <Entry Text="{Binding Ann.acces}" TextChanged="NouveauAcces"/>
+
+
+          
+            <Label Text="Payement" />
+            <Picker x:Name="payPicker"  SelectedIndex="1" SelectedIndexChanged="SetPayement">
+                <Picker.Items>
+                    <x:String>Cash</x:String>
+                    <x:String>Virement</x:String>
+                    <x:String>Cheque</x:String>
+                    <x:String>Paypal</x:String>
+
+                </Picker.Items>
+            </Picker>  <Button Text="Suivat" Clicked="Next"/>
+        </StackLayout></ScrollView>
     </ContentPage.Content>
 </ContentPage>

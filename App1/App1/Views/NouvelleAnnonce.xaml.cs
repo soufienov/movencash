@@ -1,4 +1,6 @@
-﻿using App1.ViewModels;
+﻿using App1.Models;
+using App1.Services;
+using App1.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,28 +15,59 @@ namespace App1.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NouvelleAnnonce : ContentPage
     {
+        public Annonce Ann;
         public NouvelleAnnonce()
         {
-            
-                var vm = new NouvelleAnViewModel();
-                BindingContext = vm;
+
+            BindingContext = this;
+           Ann = new Annonce();
                 InitializeComponent();
             
         }
 
-        private void NouveauTitre(object sender, EventArgs e)
+        private void NouveauTitre(object sender, TextChangedEventArgs e)
         {
-
+            Ann.titre = e.NewTextValue;
         }
 
-        private void NouveauLocal(object sender, EventArgs e)
+        private void NouvelleDesc(object sender, TextChangedEventArgs e)
         {
-
+            Ann.titredesc = e.NewTextValue;
         }
 
-        private void NouveauMotif(object sender, EventArgs e)
-        {
+       
 
+        private void SetMotif(object sender, SelectedItemChangedEventArgs e)
+        {
+             Ann.motif = motifPicker.Items[motifPicker.SelectedIndex]; 
+        }
+
+        private void SetCategorie(object sender, SelectedItemChangedEventArgs e)
+        {
+            Ann.categorie = categoPicker.Items[categoPicker.SelectedIndex];
+        }
+
+        private void SetLocal(object sender, SelectedItemChangedEventArgs e)
+        {
+            Ann.local = localPicker.Items[localPicker.SelectedIndex];
+        }
+
+       
+
+        private void Next(object sender, EventArgs e)
+        {
+            AnnonceService.annonce = Ann;
+            Navigation.PushAsync(new Images());
+        }
+
+        private void NouveauAcces(object sender, TextChangedEventArgs e)
+        {
+            Ann.acces = e.NewTextValue;
+        }
+
+        private void SetPayement(object sender, SelectedItemChangedEventArgs e)
+        {
+            Ann.payement = payPicker.Items[payPicker.SelectedIndex];
         }
     }
 }
