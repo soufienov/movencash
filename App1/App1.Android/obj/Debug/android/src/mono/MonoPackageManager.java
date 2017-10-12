@@ -100,6 +100,7 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "App1.Android.dll" comes first in this list. */
 		"App1.Android.dll",
 		"App1.dll",
+		"ExifLib.dll",
 		"FormsViewGroup.dll",
 		"Plugin.CurrentActivity.dll",
 		"Plugin.Media.Abstractions.dll",
@@ -123,9 +124,17 @@ class MonoPackageManager_Resources {
 		"Xamarin.Android.Support.v7.RecyclerView.dll",
 		"Xamarin.Android.Support.Vector.Drawable.dll",
 		"Xamarin.Forms.Core.dll",
+		"Xamarin.Forms.Labs.dll",
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
+		"XLabs.Core.dll",
+		"XLabs.Forms.dll",
+		"XLabs.Forms.Droid.dll",
+		"XLabs.Ioc.dll",
+		"XLabs.Platform.dll",
+		"XLabs.Platform.Droid.dll",
+		"XLabs.Serialization.dll",
 		"Newtonsoft.Json.dll",
 	};
 	public static final String[] Dependencies = new String[]{

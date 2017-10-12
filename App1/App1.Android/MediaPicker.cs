@@ -6,13 +6,16 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Provider;
-using App1.Controls;
-namespace App1.Android
+
+using XLabs.Platform.Services.Media;
+using App1.Droid;
+
+namespace App1.Droid
 {
     /// <summary>
     ///     Class MediaPicker.
     /// </summary>
-    public class MediaPicker : IMediaPicker
+    public class MediaPicker : Controls.IMediaPicker
     {
         private TaskCompletionSource<MediaFile> _completionSource;
         private int _requestId;
@@ -145,6 +148,8 @@ namespace App1.Android
         /// </summary>
         /// <value>The on error.</value>
         public EventHandler<MediaPickerErrorArgs> OnError { get; set; }
+        EventHandler<Controls.MediaPickerArgs> Controls.IMediaPicker.OnMediaSelected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        EventHandler<Controls.MediaPickerErrorArgs> Controls.IMediaPicker.OnError { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// Creates the media intent.
@@ -249,5 +254,9 @@ namespace App1.Android
 
             return ntcs.Task;
         }
+
+        
+
+      
     }
 }

@@ -58,6 +58,7 @@ namespace App1.ViewModels
         public ImagesViewModel()
         {
             Setup();
+                
         }
 
         /// <summary>
@@ -155,7 +156,9 @@ namespace App1.ViewModels
             {
                 return;
             }
-
+            var container = new SimpleContainer();
+            container.Register<IMediaPicker, MediaPicker>();
+            Resolver.SetResolver(container.GetResolver());
             var device = Resolver.Resolve<IDevice>();
 
             ////RM: hack for working on windows phone? 

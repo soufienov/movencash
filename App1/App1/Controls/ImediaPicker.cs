@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using XLabs.Platform.Services.Media;
 
 namespace App1.Controls
 {

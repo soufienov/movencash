@@ -14,14 +14,15 @@ using Environment = Android.OS.Environment;
 using Exception = System.Exception;
 using String = System.String;
 using Uri = Android.Net.Uri;
-
-namespace App1.Android
+using XLabs.Platform.Services.Media;
+using XLabs;
+namespace App1.Droid
 {
     /// <summary>
     /// Class MediaPickerActivity.
     /// </summary>
     [Activity]
-    internal class MediaPickerActivity
+    public class MediaPickerActivity
         : Activity
     {
         #region Constants

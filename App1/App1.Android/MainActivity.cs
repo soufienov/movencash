@@ -3,31 +3,30 @@
 //    Defines the MainActivity type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-namespace App1.Droid
-{
-    using Forms;
     using Android.App;
     using Android.Content.PM;
     using Android.OS;
-    using Xamarin.Forms.Labs.Droid;
+    
+using XLabs.Forms;
+
+namespace App1.Droid
+{
 
     /// <summary>
     /// Defines the MainActivity type.
     /// </summary>
-    [Activity(Label = "", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : XFormsApplicationDroid  
+    [Activity(Label = "App1", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        /// <summary>
-        /// Called when [create].
-        /// </summary>
-        /// <param name="bundle">The bundle.</param>
         protected override void OnCreate(Bundle bundle)
         {
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+
             base.OnCreate(bundle);
 
-            Xamarin.Forms.Forms.Init(this, bundle);
-
-            this.SetPage(FormsHelper.GetMainPage());
+            global::Xamarin.Forms.Forms.Init(this, bundle);
+            LoadApplication(new App());
         }
     }
 }

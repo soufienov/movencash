@@ -11,8 +11,7 @@
 namespace App1.Controls {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\movencash\\App1\\App1\\Controls\\" +
-        "CheckBoxPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("F:\\movencash\\App1\\App1\\Controls\\CheckBoxPage.xaml")]
     public partial class CheckBox : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
