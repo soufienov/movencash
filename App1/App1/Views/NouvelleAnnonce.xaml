@@ -42,8 +42,8 @@
             <Entry Text="{Binding Ann.acces}" TextChanged="NouveauAcces"/>
 
 
-                <c:CheckBox Text="fsjg">omhge</c:CheckBox>
-            <Label Text="Payement" />
+                <c:CheckBox x:Name="publier" IsChecked="True"  CheckedChanged="publier_CheckedChanged"  Text="Publier"/>
+                <Label Text="Payement" />
             <Picker x:Name="payPicker"  SelectedIndex="1" SelectedIndexChanged="SetPayement">
                 <Picker.Items>
                     <x:String>Cash</x:String>

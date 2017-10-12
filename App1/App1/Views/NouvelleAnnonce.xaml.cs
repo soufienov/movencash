@@ -69,5 +69,11 @@ namespace App1.Views
         {
             Ann.payement = payPicker.Items[payPicker.SelectedIndex];
         }
+
+        private void publier_CheckedChanged(object sender, bool e)
+        {
+            if (e) Ann.publish = 1;
+            else Ann.publish = 0;
+        }
     }
 }

@@ -1,10 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App1.Views.Images">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="App1.Views.Images"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
+            <Button Command="{Binding TakePictureCommand}" Text="Take Picture" />
+            <Button Command="{Binding SelectPictureCommand}" Text="Select Image from Picture Library" />
+            <Button Command="{Binding SelectVideoCommand}" Text="Select Video from Picture Library " />
+            <Image Source="{Binding ImageSource}" VerticalOptions="CenterAndExpand" />
+            <Entry Text="{Binding VideoInfo}" VerticalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

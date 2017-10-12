@@ -39,7 +39,7 @@ namespace App1.Controls
                 {
                     // Set the graphic.
                     CheckBox checkbox = (CheckBox)bindable;
-                    checkbox.boxLabel.Text = (bool)newValue ? "\u2611" : "\u2610";
+                    checkbox.boxLabel.Text = (bool)newValue ? "\u2611" : "\u25A1";
 
                     // Fire the event.
                     EventHandler<bool> eventHandler = checkbox.CheckedChanged;
