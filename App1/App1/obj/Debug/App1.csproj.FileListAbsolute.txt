@@ -64,23 +64,13 @@ F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Core.xml
 F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Platform.pdb
 F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Xaml.pdb
 F:\App1\App1\App1\bin\Debug\Xamarin.Forms.Xaml.xml
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.csproj.App.config
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.csprojResolveAssemblyReference.cache
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.MainPage.xaml.g.cs
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.App.xaml.g.cs
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.RegisterPage.xaml.g.cs
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.LoginPage.xaml.g.cs
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.ItemPage.xaml.g.cs
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.AnnoncePage.xaml.g.cs
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.NouvelleAnnonce.xaml.g.cs
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.NouveauItem.xaml.g.cs
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.dll
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.pdb
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\App1.dll.config
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\App1.dll
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\App1.pdb
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Mono.Android.dll
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Plugin.Media.Abstractions.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Plugin.Media.dll
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\System.Net.Http.dll
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\System.Net.Http.Extensions.dll
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\System.Net.Http.Primitives.dll
@@ -90,6 +80,10 @@ C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debu
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Mono.Android.pdb
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Mono.Android.xml
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Plugin.Media.pdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Plugin.Media.xml
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Plugin.Media.Abstractions.pdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Plugin.Media.Abstractions.xml
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\System.Net.Http.xml
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\System.Net.Http.Primitives.xml
@@ -98,3 +92,17 @@ C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debu
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Xamarin.Forms.Platform.pdb
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.csproj.App.config
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.MainPage.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.App.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.RegisterPage.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.LoginPage.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.ItemPage.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.AnnoncePage.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.NouvelleAnnonce.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.NouveauItem.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.Images.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Controls.CheckBoxPage.xaml.g.cs
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.pdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.csprojResolveAssemblyReference.cache

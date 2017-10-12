@@ -11,8 +11,8 @@
 namespace App1.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\user\\documents\\visual studio 2017\\Projects\\App1\\App1\\App1\\Views\\LoginPag" +
-        "e.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\movencash\\App1\\App1\\Views\\Log" +
+        "inPage.xaml")]
     public partial class LoginPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

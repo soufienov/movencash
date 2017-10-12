@@ -11,8 +11,8 @@
 namespace App1.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\user\\documents\\visual studio 2017\\Projects\\App1\\App1\\App1\\Views\\Register" +
-        "Page.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\movencash\\App1\\App1\\Views\\Reg" +
+        "isterPage.xaml")]
     public partial class RegisterPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
