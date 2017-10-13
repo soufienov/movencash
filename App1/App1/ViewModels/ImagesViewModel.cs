@@ -56,7 +56,7 @@ namespace App1.ViewModels
         /// Initializes a new instance of the <see cref="CameraViewModel" /> class.
         /// </summary>
         public ImagesViewModel()
-        {
+        { _imageSource = new ImageSource[6];
             Setup();
                 
         }
