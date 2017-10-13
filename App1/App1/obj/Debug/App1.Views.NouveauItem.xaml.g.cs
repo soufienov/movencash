@@ -11,7 +11,8 @@
 namespace App1.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("F:\\movencash\\App1\\App1\\Views\\NouveauItem.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\movencash\\App1\\App1\\Views\\Nou" +
+        "veauItem.xaml")]
     public partial class NouveauItem : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

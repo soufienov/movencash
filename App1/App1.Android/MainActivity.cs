@@ -6,8 +6,8 @@
     using Android.App;
     using Android.Content.PM;
     using Android.OS;
-    
-using XLabs.Forms;
+using XLabs.Ioc;
+using XLabs.Platform.Device;
 
 namespace App1.Droid
 {
@@ -24,7 +24,12 @@ namespace App1.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+            SimpleContainer container = new SimpleContainer();
+            container.Register<IDevice>(t => AndroidDevice.CurrentDevice);
+            container.Register<IDisplay>(t => t.Resolve<IDevice>().Display);
+            container.Register<XLabs.Platform.Services.INetwork>(t => t.Resolve<IDevice>().Network);
 
+            Resolver.SetResolver(container.GetResolver());
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

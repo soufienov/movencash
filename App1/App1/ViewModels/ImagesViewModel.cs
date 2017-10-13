@@ -25,7 +25,7 @@ namespace App1.ViewModels
         /// <summary>
         /// The image source.
         /// </summary>
-        private ImageSource _imageSource;
+        private ImageSource[] _imageSource;
 
         /// <summary>
         /// The video info.
@@ -69,11 +69,11 @@ namespace App1.ViewModels
         {
             get
             {
-                return _imageSource;
+                return _imageSource[0];
             }
             set
             {
-                SetProperty(ref _imageSource, value);
+                SetProperty(ref _imageSource[0], value);
             }
         }
 
@@ -156,9 +156,7 @@ namespace App1.ViewModels
             {
                 return;
             }
-            var container = new SimpleContainer();
-            container.Register<IMediaPicker, MediaPicker>();
-            Resolver.SetResolver(container.GetResolver());
+           
             var device = Resolver.Resolve<IDevice>();
 
             ////RM: hack for working on windows phone? 
