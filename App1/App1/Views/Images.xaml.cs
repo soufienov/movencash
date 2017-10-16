@@ -1,4 +1,5 @@
-﻿using App1.ViewModels;
+﻿using App1.Controls;
+using App1.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,13 @@ namespace App1.Views
         {
             BindingContext = new ImagesViewModel();
             InitializeComponent();
+           
+        }
+      
+
+        private void opengallery(object sender, EventArgs e)
+        {
+ DependencyService.Get<IMediaService>().OpenGallery() ;
         }
     }
 }

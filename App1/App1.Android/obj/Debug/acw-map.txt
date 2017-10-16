@@ -10,6 +10,10 @@ App1.Droid.MediaPickerActivity, App1.Android;md58adf3f2592a7497b73592b5e766304c2
 App1.Droid.MediaPickerActivity, App1.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md58adf3f2592a7497b73592b5e766304c2.MediaPickerActivity
 App1.Droid.MediaPickerActivity;md58adf3f2592a7497b73592b5e766304c2.MediaPickerActivity
 app1.droid.MediaPickerActivity;md58adf3f2592a7497b73592b5e766304c2.MediaPickerActivity
+App1.Droid.MediaService, App1.Android;md58adf3f2592a7497b73592b5e766304c2.MediaService
+App1.Droid.MediaService, App1.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md58adf3f2592a7497b73592b5e766304c2.MediaService
+App1.Droid.MediaService;md58adf3f2592a7497b73592b5e766304c2.MediaService
+app1.droid.MediaService;md58adf3f2592a7497b73592b5e766304c2.MediaService
 Plugin.Media.MediaPickerActivity, Plugin.Media;md5f1b52d9f1d5d1981437e7e130649468a.MediaPickerActivity
 Plugin.Media.MediaPickerActivity, Plugin.Media, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null;md5f1b52d9f1d5d1981437e7e130649468a.MediaPickerActivity
 Plugin.Media.MediaPickerActivity;md5f1b52d9f1d5d1981437e7e130649468a.MediaPickerActivity

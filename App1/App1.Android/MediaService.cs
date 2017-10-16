@@ -9,6 +9,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using App1.Controls;
+using Xamarin.Forms;
+using App1.Droid;
+
 [assembly: Xamarin.Forms.Dependency(typeof(MediaService))]
 namespace App1.Droid
 {

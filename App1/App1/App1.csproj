@@ -42,6 +42,7 @@
       <DependentUpon>CheckBoxPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\IMediaPicker.cs" />
+    <Compile Include="Controls\IMediaService.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

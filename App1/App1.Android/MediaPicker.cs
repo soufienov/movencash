@@ -9,6 +9,7 @@ using Android.Provider;
 
 using XLabs.Platform.Services.Media;
 using App1.Droid;
+using Xamarin.Forms;
 
 namespace App1.Droid
 {
@@ -22,7 +23,7 @@ namespace App1.Droid
 
         private static Context Context
         {
-            get { return Application.Context; }
+            get { return Context; }
         }
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace App1.Droid
             }
 
             options.VerifyOptions();
-
+             
             return TakeMediaAsync("image/*", Intent.ActionPick, options);
         }
 
@@ -168,7 +169,7 @@ namespace App1.Droid
             pickerIntent.PutExtra(MediaPickerActivity.ExtraType, type);
             pickerIntent.PutExtra(MediaPickerActivity.ExtraAction, action);
             pickerIntent.PutExtra(MediaPickerActivity.ExtraTasked, tasked);
-
+            pickerIntent.PutExtra(Intent.ExtraAllowMultiple, true);
             if (options != null)
             {
                 pickerIntent.PutExtra(MediaPickerActivity.ExtraPath, options.Directory);
@@ -215,14 +216,14 @@ namespace App1.Droid
         private Task<MediaFile> TakeMediaAsync(string type, string action, MediaStorageOptions options)
         {
             var id = GetRequestId();
-
+            var srcs=new  MediaFile[3];var i = 0;
             var ntcs = new TaskCompletionSource<MediaFile>(id);
             if (Interlocked.CompareExchange(ref _completionSource, ntcs, null) != null)
             {
                 throw new InvalidOperationException("Only one operation can be active at a time");
             }
 
-            Context.StartActivity(CreateMediaIntent(id, type, action, options));
+           ((Activity)Forms.Context).StartActivityForResult(Intent.CreateChooser (CreateMediaIntent(id, type, action, options),"choose"),0);
 
             EventHandler<MediaPickedEventArgs> handler = null;
             handler = (s, e) =>
@@ -245,8 +246,9 @@ namespace App1.Droid
                     tcs.SetCanceled();
                 }
                 else
-                {
-                    tcs.SetResult(e.Media);
+                {if(i<3)
+                    { srcs[i] = e.Media;i++; }
+                    else tcs.SetResult(e.Media);
                 }
             };
 

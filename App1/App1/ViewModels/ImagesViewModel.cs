@@ -203,21 +203,23 @@ namespace App1.ViewModels
         private async Task SelectPicture()
         {
             Setup();
-
+            
+            var options = new CameraMediaStorageOptions
+            {
+                DefaultCamera = CameraDevice.Front,
+                MaxPixelDimension = 400
+            };
             ImageSource = null;
-            try
-            {
-                var mediaFile = await _mediaPicker.SelectPhotoAsync(new CameraMediaStorageOptions
-                {
-                    DefaultCamera = CameraDevice.Front,
-                    MaxPixelDimension = 400
-                });
+          
+                 try{
+                        var mediaFile = await _mediaPicker.SelectPhotoAsync(options);
+
                 ImageSource = ImageSource.FromStream(() => mediaFile.Source);
-            }
+                    }
             catch (System.Exception ex)
-            {
-                Status = ex.Message;
-            }
+                {
+                    Status = ex.Message;
+                } 
         }
 
         /// <summary>
