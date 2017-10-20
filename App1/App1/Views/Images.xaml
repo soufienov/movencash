@@ -10,5 +10,6 @@
             <Image Source="{Binding ImageSource}" VerticalOptions="CenterAndExpand" />
             <Entry Text="{Binding VideoInfo}" VerticalOptions="CenterAndExpand" />
         </StackLayout>
+      
     </ContentPage.Content>
 </ContentPage>

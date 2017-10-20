@@ -168,7 +168,6 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="MediaPicker.cs" />
     <Compile Include="MediaPickerActivity.cs" />
-    <Compile Include="MediaService.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

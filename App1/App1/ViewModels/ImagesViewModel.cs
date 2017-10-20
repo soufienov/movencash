@@ -160,7 +160,8 @@ namespace App1.ViewModels
             var device = Resolver.Resolve<IDevice>();
 
             ////RM: hack for working on windows phone? 
-            _mediaPicker = DependencyService.Get<IMediaPicker>() ?? device.MediaPicker;
+            var mp = DependencyService.Get<IMediaPicker>();
+            _mediaPicker = mp ?? device.MediaPicker;
         }
 
         /// <summary>
@@ -212,7 +213,7 @@ namespace App1.ViewModels
             ImageSource = null;
           
                  try{
-                        var mediaFile = await _mediaPicker.SelectPhotoAsync(options);
+                var mediaFile= await _mediaPicker.SelectPhotoAsync(options);
 
                 ImageSource = ImageSource.FromStream(() => mediaFile.Source);
                     }

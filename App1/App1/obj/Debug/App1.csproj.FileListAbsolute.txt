@@ -155,6 +155,7 @@ C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debu
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\XLabs.Platform.xml
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\XLabs.Serialization.xml
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.csproj.App.config
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.csprojResolveAssemblyReference.cache
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.MainPage.xaml.g.cs
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.App.xaml.g.cs
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.RegisterPage.xaml.g.cs
@@ -167,4 +168,3 @@ C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debu
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Controls.CheckBoxPage.xaml.g.cs
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.dll
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.pdb
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.csprojResolveAssemblyReference.cache

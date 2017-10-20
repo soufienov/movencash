@@ -1,29 +1,27 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Provider;
-
 using XLabs.Platform.Services.Media;
-using App1.Droid;
-using Xamarin.Forms;
+using Android.App;
 
+[assembly: Xamarin.Forms.Dependency(typeof(App1.Droid.MediaPicker))]
 namespace App1.Droid
 {
     /// <summary>
     ///     Class MediaPicker.
     /// </summary>
-    public class MediaPicker : Controls.IMediaPicker
+    public class MediaPicker : IMediaPicker
     {
         private TaskCompletionSource<MediaFile> _completionSource;
         private int _requestId;
 
         private static Context Context
         {
-            get { return Context; }
+            get { return Application.Context; }
         }
 
         /// <summary>
@@ -82,6 +80,7 @@ namespace App1.Droid
             options.VerifyOptions();
              
             return TakeMediaAsync("image/*", Intent.ActionPick, options);
+            
         }
 
         /// <summary>
@@ -149,8 +148,8 @@ namespace App1.Droid
         /// </summary>
         /// <value>The on error.</value>
         public EventHandler<MediaPickerErrorArgs> OnError { get; set; }
-        EventHandler<Controls.MediaPickerArgs> Controls.IMediaPicker.OnMediaSelected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        EventHandler<Controls.MediaPickerErrorArgs> Controls.IMediaPicker.OnError { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        EventHandler<MediaPickerArgs> IMediaPicker.OnMediaSelected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        EventHandler<MediaPickerErrorArgs> IMediaPicker.OnError { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// Creates the media intent.
@@ -168,7 +167,7 @@ namespace App1.Droid
             pickerIntent.PutExtra(MediaPickerActivity.ExtraId, id);
             pickerIntent.PutExtra(MediaPickerActivity.ExtraType, type);
             pickerIntent.PutExtra(MediaPickerActivity.ExtraAction, action);
-            pickerIntent.PutExtra(MediaPickerActivity.ExtraTasked, tasked);
+            pickerIntent.PutExtra(MediaPickerActivity.ExtraTasked, false);
             pickerIntent.PutExtra(Intent.ExtraAllowMultiple, true);
             if (options != null)
             {
@@ -182,7 +181,7 @@ namespace App1.Droid
                     pickerIntent.PutExtra(MediaStore.ExtraVideoQuality, (int)vidOptions.Quality);
                 }
             }
-
+           
             return pickerIntent;
         }
 
@@ -216,14 +215,15 @@ namespace App1.Droid
         private Task<MediaFile> TakeMediaAsync(string type, string action, MediaStorageOptions options)
         {
             var id = GetRequestId();
-            var srcs=new  MediaFile[3];var i = 0;
+           
             var ntcs = new TaskCompletionSource<MediaFile>(id);
             if (Interlocked.CompareExchange(ref _completionSource, ntcs, null) != null)
             {
                 throw new InvalidOperationException("Only one operation can be active at a time");
             }
 
-           ((Activity)Forms.Context).StartActivityForResult(Intent.CreateChooser (CreateMediaIntent(id, type, action, options),"choose"),0);
+            var i = 0;
+        Context.StartActivity(new Intent(CreateMediaIntent(id, type, action, options)));
 
             EventHandler<MediaPickedEventArgs> handler = null;
             handler = (s, e) =>
@@ -246,14 +246,15 @@ namespace App1.Droid
                     tcs.SetCanceled();
                 }
                 else
-                {if(i<3)
-                    { srcs[i] = e.Media;i++; }
-                    else tcs.SetResult(e.Media);
+                {
+                 
+                    tcs.SetResult(e.Media);
+                   
                 }
             };
 
             MediaPickerActivity.MediaPicked += handler;
-
+           i++;
             return ntcs.Task;
         }
 

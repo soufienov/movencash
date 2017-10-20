@@ -16,13 +16,19 @@ using String = System.String;
 using Uri = Android.Net.Uri;
 using XLabs.Platform.Services.Media;
 using XLabs;
+using Java.Util;
+using System.Collections.Generic;
+
 namespace App1.Droid
 {
     /// <summary>
     /// Class MediaPickerActivity.
+
+    /// <summary>
+    /// Class MediaPickerActivity.
     /// </summary>
     [Activity]
-    public class MediaPickerActivity
+    internal class MediaPickerActivity
         : Activity
     {
         #region Constants
@@ -185,7 +191,39 @@ namespace App1.Droid
             base.OnSaveInstanceState(outState);
         }
 
-        
+        /// <summary>
+        /// Called when the activity is starting.
+        /// </summary>
+        /// <param name="savedInstanceState">If the activity is being re-initialized after
+        /// previously being shut down then this Bundle contains the data it most
+        /// recently supplied in <c><see cref="M:Android.App.Activity.OnSaveInstanceState(Android.OS.Bundle)" /></c>.  <format type="text/html"><b><i>Note: Otherwise it is null.</i></b></format></param>
+        /// <since version="Added in API level 1" />
+        /// <altmember cref="M:Android.App.Activity.OnStart" />
+        /// <altmember cref="M:Android.App.Activity.OnSaveInstanceState(Android.OS.Bundle)" />
+        /// <altmember cref="M:Android.App.Activity.OnRestoreInstanceState(Android.OS.Bundle)" />
+        /// <altmember cref="M:Android.App.Activity.OnPostCreate(Android.OS.Bundle)" />
+        /// <remarks><para tool="javadoc-to-mdoc">Called when the activity is starting.  This is where most initialization
+        /// should go: calling <c><see cref="M:Android.App.Activity.SetContentView(System.Int32)" /></c> to inflate the
+        /// activity's UI, using <c><see cref="M:Android.App.Activity.FindViewById(System.Int32)" /></c> to programmatically interact
+        /// with widgets in the UI, calling
+        /// <c><see cref="M:Android.App.Activity.ManagedQuery(Android.Net.Uri, System.String[], System.String[], System.String[], System.String[])" /></c> to retrieve
+        /// cursors for data being displayed, etc.
+        /// </para>
+        /// <para tool="javadoc-to-mdoc">You can call <c><see cref="M:Android.App.Activity.Finish" /></c> from within this function, in
+        /// which case onDestroy() will be immediately called without any of the rest
+        /// of the activity lifecycle (<c><see cref="M:Android.App.Activity.OnStart" /></c>, <c><see cref="M:Android.App.Activity.OnResume" /></c>,
+        /// <c><see cref="M:Android.App.Activity.OnPause" /></c>, etc) executing.
+        /// </para>
+        /// <para tool="javadoc-to-mdoc">
+        ///   <i>Derived classes must call through to the super class's
+        /// implementation of this method.  If they do not, an exception will be
+        /// thrown.</i>
+        /// </para>
+        /// <para tool="javadoc-to-mdoc">
+        ///   <format type="text/html">
+        ///     <a href="http://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)" target="_blank">[Android Documentation]</a>
+        ///   </format>
+        /// </para></remarks>
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -212,8 +250,9 @@ namespace App1.Droid
             try
             {
                 pickIntent = new Intent(_action);
+
                 if (_action == Intent.ActionPick)
-                    pickIntent.SetType(_type);
+                { pickIntent.SetType(_type); pickIntent.PutExtra(Intent.ExtraAllowMultiple, true); pickIntent.SetAction(Intent.ActionGetContent); }
                 else
                 {
                     if (!_isPhoto)
@@ -262,15 +301,43 @@ namespace App1.Droid
             }
         }
 
-     
+        /// <summary>
+        /// Called when an activity you launched exits, giving you the requestCode
+        /// you started it with, the resultCode it returned, and any additional
+        /// data from it.
+        /// </summary>
+        /// <param name="requestCode">The integer request code originally supplied to
+        /// startActivityForResult(), allowing you to identify who this
+        /// result came from.</param>
+        /// <param name="resultCode">The integer result code returned by the child activity
+        /// through its setResult().</param>
+        /// <param name="data">An Intent, which can return result data to the caller
+        /// (various data can be attached to Intent "extras").</param>
+        /// <since version="Added in API level 1" />
+        /// <altmember cref="M:Android.App.Activity.StartActivityForResult(Android.Content.Intent, System.Int32)" />
+        /// <altmember cref="M:Android.App.Activity.CreatePendingResult(System.Int32, Android.Content.Intent, Android.Content.Intent)" />
+        /// <altmember cref="M:Android.App.Activity.SetResult(Android.App.Result)" />
+        /// <remarks><para tool="javadoc-to-mdoc">Called when an activity you launched exits, giving you the requestCode
+        /// you started it with, the resultCode it returned, and any additional
+        /// data from it.  The <format type="text/html"><var>resultCode</var></format> will be
+        /// <c><see cref="F:Android.App.Result.Canceled" /></c> if the activity explicitly returned that,
+        /// didn't return any result, or crashed during its operation.
+        /// </para>
+        /// <para tool="javadoc-to-mdoc">You will receive this call immediately before onResume() when your
+        /// activity is re-starting.</para>
+        /// <para tool="javadoc-to-mdoc">
+        ///   <format type="text/html">
+        ///     <a href="http://developer.android.com/reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)" target="_blank">[Android Documentation]</a>
+        ///   </format>
+        /// </para></remarks>
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
             if (_tasked)
             {
-                var future = resultCode == Result.Canceled
-                    ? TaskUtils.TaskFromResult(new MediaPickedEventArgs(requestCode, true))
+                var future = resultCode == Result.Canceled ?
+                     TaskUtils.TaskFromResult(new MediaPickedEventArgs(requestCode, true))
                     : GetMediaFileAsync(this, requestCode, _action, _isPhoto, ref _path, (data != null) ? data.Data : null);
 
                 Finish();
@@ -286,12 +353,14 @@ namespace App1.Droid
                 else
                 {
                     var resultData = new Intent();
-                    resultData.PutExtra(MediaFileExtraName, (data != null) ? data.Data : null);
+                    resultData.PutExtra(MediaFileExtraName, (data != null) ? data.ClipData : null);
                     resultData.PutExtra(ExtraPath, _path);
                     resultData.PutExtra("isPhoto", _isPhoto);
-                    resultData.PutExtra(ExtraAction, _action);
 
                     SetResult(Result.Ok, resultData);
+                    var future = GetMediaFileAsync(this, requestCode, _action, _isPhoto, ref _path, (data != null) ? data.ClipData : null);
+                    Finish();
+                    future.ContinueWith(t => RaiseOnMediaPicked(t.Result));
                 }
 
                 Finish();
@@ -313,10 +382,10 @@ namespace App1.Droid
         internal static Task<MediaPickedEventArgs> GetMediaFileAsync(Context context, int requestCode, string action,
             bool isPhoto, ref Uri path, Uri data)
         {
-            Task<Tuple<string, bool>> pathFuture;
+            Task<Stack<Tuple<string, bool>>> pathFuture;
             Action<bool> dispose = null;
             string originalPath = null;
-
+            
             if (action != Intent.ActionPick)
             {
                 originalPath = path.Path;
@@ -327,8 +396,8 @@ namespace App1.Droid
                 {
                     originalPath = data.ToString();
                     var currentPath = path.Path;
-
-                    pathFuture = TryMoveFileAsync(context, data, path, isPhoto).ContinueWith(t =>
+                    Uri[] paths = { path };
+                    pathFuture = TryMoveFileAsync(context, data, paths, isPhoto).ContinueWith(t =>
                         new Tuple<string, bool>(t.Result ? currentPath : null, false));
                 }
                 else
@@ -338,7 +407,8 @@ namespace App1.Droid
             {
                 originalPath = data.ToString();
                 path = data;
-                pathFuture = GetFileForUriAsync(context, path, isPhoto);
+                 Uri[] paths = {path};
+                pathFuture = GetFileForUriAsync(context, paths, isPhoto);
             }
             else
             {
@@ -362,26 +432,84 @@ namespace App1.Droid
                 return new MediaPickedEventArgs(requestCode, new MediaFileNotFoundException(originalPath));
             });
         }
-
-        private static Task<bool> TryMoveFileAsync(Context context, Uri url, Uri path, bool isPhoto)
+        internal static Task<MediaPickedEventArgs> GetMediaFileAsync(Context context, int requestCode, string action,
+           bool isPhoto, ref Uri path, ClipData data)
         {
-            string moveTo = GetLocalPath(path);
-            return GetFileForUriAsync(context, url, isPhoto).ContinueWith(t =>
+            Task< Stack < Tuple<string, bool>>> pathFuture;
+            Action<bool> dispose = null;
+            string originalPath = null;
+            var paths = new Uri[data.ItemCount];
+            var files = new MediaFile[data.ItemCount];
+            var i = 0;
+            if (data != null)
+            {originalPath = data.ToString();
+                for (i = 0; i < data.ItemCount; i++)
+                {
+                    
+                    paths[i] = data.GetItemAt(i).Uri;
+
+                }
+                pathFuture = GetFileForUriAsync(context, paths, isPhoto);
+            }
+            else
             {
-                if (t.Result.Item1 == null)
+                pathFuture = TaskUtils.TaskFromResult<Stack<Tuple<string, bool>>>(null);
+            }
+
+            return pathFuture.ContinueWith(t =>
+            {
+                string resultPath = t.Result.Pop().Item1;
+                if (resultPath != null && File.Exists(t.Result.Pop().Item1))
+                {
+                    if (t.Result.Pop().Item2)
+                    {
+                        dispose = d => File.Delete(resultPath);
+                    }
+
+                    var mf = new MediaFile(resultPath, () => File.OpenRead(t.Result.Pop().Item1), dispose);
+                    files[i]= mf;
+                    if(i==data.ItemCount)
+                    return new MediaPickedEventArgs(requestCode, false, mf);
+                }
+                return new MediaPickedEventArgs(requestCode, new MediaFileNotFoundException(originalPath));
+            });
+        }
+
+        /// <summary>
+        /// Tries the move file asynchronous.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="url">The URL.</param>
+        /// <param name="path">The path.</param>
+        /// <param name="isPhoto">if set to <c>true</c> [is photo].</param>
+        /// <returns>Task&lt;System.Boolean&gt;.</returns>
+
+        private static Task<bool> TryMoveFileAsync(Context context, Uri url, Uri[] paths, bool isPhoto)
+        {
+            Uri[] uris = { url };
+            foreach (var path in paths)
+            {
+            string moveTo = GetLocalPath(path);
+            return GetFileForUriAsync(context, uris, isPhoto).ContinueWith(t =>
+            {
+                if (t.Result.Pop().Item1 == null)
                     return false;
 
                 File.Delete(moveTo);
-                File.Move(t.Result.Item1, moveTo);
+                File.Move(t.Result.Pop().Item1, moveTo);
 
                 if (url.Scheme == "content")
                     context.ContentResolver.Delete(url, null, null);
 
                 return true;
-            }, TaskScheduler.Default);
+            }, TaskScheduler.Default); }
+            return null;
         }
-
-      
+        /// <summary>
+        /// Gets the video quality.
+        /// </summary>
+        /// <param name="videoQuality">The video quality.</param>
+        /// <returns>System.Int32.</returns>
         private static int GetVideoQuality(VideoQuality videoQuality)
         {
             switch (videoQuality)
@@ -395,7 +523,15 @@ namespace App1.Droid
             }
         }
 
-      
+        /// <summary>
+        /// Gets the output media file.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="subdir">The subdir.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="isPhoto">if set to <c>true</c> [is photo].</param>
+        /// <returns>Uri.</returns>
+        /// <exception cref="System.IO.IOException">Couldn't create directory, have you added the WRITE_EXTERNAL_STORAGE permission?</exception>
         private static Uri GetOutputMediaFile(Context context, string subdir, string name, bool isPhoto)
         {
             subdir = subdir ?? String.Empty;
@@ -456,54 +592,60 @@ namespace App1.Droid
         /// <param name="uri">The URI.</param>
         /// <param name="isPhoto">if set to <c>true</c> [is photo].</param>
         /// <returns>Task&lt;Tuple&lt;System.String, System.Boolean&gt;&gt;.</returns>
-        internal static Task<Tuple<string, bool>> GetFileForUriAsync(Context context, Uri uri, bool isPhoto)
+        internal static Task<Stack<Tuple<string, bool>>> GetFileForUriAsync(Context context, Uri[] uris, bool isPhoto)
         {
-            var tcs = new TaskCompletionSource<Tuple<string, bool>>();
-
-            if (uri.Scheme == "file")
-                tcs.SetResult(new Tuple<string, bool>(new System.Uri(uri.ToString()).LocalPath, false));
-            else if (uri.Scheme == "content")
+            var returnList = new Stack<Tuple<string, bool>>();
+            var tcs = new TaskCompletionSource<Stack<Tuple<string, bool>>>();
+            foreach (var uri in uris)
             {
-                Task.Factory.StartNew(() =>
+                if (uri.Scheme == "file")
+                    returnList.Push(new Tuple<string, bool>(new System.Uri(uri.ToString()).LocalPath, false));
+                else if (uri.Scheme == "content")
                 {
-                    ICursor cursor = null;
-                    try
+                    Task.Factory.StartNew(() =>
                     {
-                        cursor = context.ContentResolver.Query(uri, null, null, null, null);
-                        if (cursor == null || !cursor.MoveToNext())
-                            tcs.SetResult(new Tuple<string, bool>(null, false));
-                        else
+                        ICursor cursor = null;
+                        try
                         {
-                            int column = cursor.GetColumnIndex(MediaStore.MediaColumns.Data);
-                            string contentPath = null;
+                            cursor = context.ContentResolver.Query(uri, null, null, null, null);
+                            if (cursor == null || !cursor.MoveToNext())
+                                returnList.Push(new Tuple<string, bool>(null, false));
+                            else
+                            {
+                                int column = cursor.GetColumnIndex(MediaStore.MediaColumns.Data);
+                                string contentPath = null;
 
-                            if (column != -1)
-                                contentPath = cursor.GetString(column);
+                                if (column != -1)
+                                    contentPath = cursor.GetString(column);
 
-                            bool copied = false;
+                                bool copied = false;
 
-                         
 
-                            tcs.SetResult(new Tuple<string, bool>(contentPath, copied));
+                                returnList.Push(new Tuple<string, bool>(contentPath, copied));
+                            }
                         }
-                    }
-                    finally
-                    {
-                        if (cursor != null)
+                        finally
                         {
-                            cursor.Close();
-                            cursor.Dispose();
+                            if (cursor != null)
+                            {
+                                cursor.Close();
+                                cursor.Dispose();
+                            }
                         }
-                    }
-                }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
+                    }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
+                }
+                else
+                    returnList.Push(new Tuple<string, bool>(null, false));
             }
-            else
-                tcs.SetResult(new Tuple<string, bool>(null, false));
-
+            tcs.SetResult(returnList);
             return tcs.Task;
         }
 
-     
+        /// <summary>
+        /// Gets the local path.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        /// <returns>System.String.</returns>
         private static string GetLocalPath(Uri uri)
         {
             return new System.Uri(uri.ToString()).LocalPath;
@@ -575,9 +717,8 @@ namespace App1.Droid
             IsCanceled = isCanceled;
             if (!IsCanceled && media == null)
                 throw new ArgumentNullException("media");
-
-            Media = media;
-        }
+                Media = media;
+                }
         #endregion Constructors
 
         #region Public Properties
@@ -586,7 +727,7 @@ namespace App1.Droid
         /// </summary>
         /// <value>The request identifier.</value>
         public int RequestId { get; private set; }
-
+        public int i = 0;
         /// <summary>
         /// Gets a value indicating whether this instance is canceled.
         /// </summary>
