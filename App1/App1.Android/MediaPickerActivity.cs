@@ -385,11 +385,11 @@ namespace App1.Droid
             Task<Stack<Tuple<string, bool>>> pathFuture;
             Action<bool> dispose = null;
             string originalPath = null;
-            
+            var stack = new Stack<Tuple<string, bool>>();
             if (action != Intent.ActionPick)
             {
                 originalPath = path.Path;
-
+ 
                 // Not all camera apps respect EXTRA_OUTPUT, some will instead
                 // return a content or file uri from data.
                 if (data != null && data.Path != originalPath)
@@ -397,11 +397,13 @@ namespace App1.Droid
                     originalPath = data.ToString();
                     var currentPath = path.Path;
                     Uri[] paths = { path };
-                    pathFuture = TryMoveFileAsync(context, data, paths, isPhoto).ContinueWith(t =>
-                        new Tuple<string, bool>(t.Result ? currentPath : null, false));
+
+                    pathFuture = null;
                 }
                 else
-                    pathFuture = TaskUtils.TaskFromResult(new Tuple<string, bool>(path.Path, false));
+                {
+                    stack.Push(new Tuple<string, bool>(path.Path, false));
+                    pathFuture = TaskUtils.TaskFromResult(stack); }
             }
             else if (data != null)
             {
@@ -412,22 +414,23 @@ namespace App1.Droid
             }
             else
             {
-                pathFuture = TaskUtils.TaskFromResult<Tuple<string, bool>>(null);
+                
+                pathFuture = TaskUtils.TaskFromResult<Stack<Tuple<string, bool>>>(null);
             }
 
             return pathFuture.ContinueWith(t =>
-            {
-                string resultPath = t.Result.Item1;
-                if (resultPath != null && File.Exists(t.Result.Item1))
+            { var rs = t.Result.Pop();
+                string resultPath = rs.Item1;
+                if (resultPath != null && File.Exists(resultPath))
                 {
-                    if (t.Result.Item2)
+                    if (rs.Item2)
                     {
                         dispose = d => File.Delete(resultPath);
                     }
 
-                    var mf = new MediaFile(resultPath, () => File.OpenRead(t.Result.Item1), dispose);
-
-                    return new MediaPickedEventArgs(requestCode, false, mf);
+                    var mf = new MediaFile(resultPath, () => File.OpenRead(rs.Item1), dispose);
+                   MediaFile[] mfs = { mf };
+                    return new MediaPickedEventArgs(requestCode, false,mfs );
                 }
                 return new MediaPickedEventArgs(requestCode, new MediaFileNotFoundException(originalPath));
             });
@@ -457,20 +460,25 @@ namespace App1.Droid
             }
 
             return pathFuture.ContinueWith(t =>
-            {
-                string resultPath = t.Result.Pop().Item1;
-                if (resultPath != null && File.Exists(t.Result.Pop().Item1))
+            { var j = 0;
+                while (j < data.ItemCount)
                 {
-                    if (t.Result.Pop().Item2)
+                    var rs = t.Result.Pop(); ;
+                    string resultPath = rs.Item1;
+                    if (resultPath != null && File.Exists(rs.Item1))
                     {
-                        dispose = d => File.Delete(resultPath);
-                    }
+                        if (rs.Item2)
+                        {
+                            dispose = d => File.Delete(resultPath);
+                        }
 
-                    var mf = new MediaFile(resultPath, () => File.OpenRead(t.Result.Pop().Item1), dispose);
-                    files[i]= mf;
-                    if(i==data.ItemCount)
-                    return new MediaPickedEventArgs(requestCode, false, mf);
-                }
+                        var mf = new MediaFile(resultPath, () => File.OpenRead(rs.Item1), dispose);
+                        files[j] = mf;
+
+
+                    }
+                    j++;
+                } return new MediaPickedEventArgs(requestCode, false, files);
                 return new MediaPickedEventArgs(requestCode, new MediaFileNotFoundException(originalPath));
             });
         }
@@ -492,11 +500,12 @@ namespace App1.Droid
             string moveTo = GetLocalPath(path);
             return GetFileForUriAsync(context, uris, isPhoto).ContinueWith(t =>
             {
-                if (t.Result.Pop().Item1 == null)
+                var rs = t.Result.Pop();
+                if (rs.Item1 == null)
                     return false;
 
                 File.Delete(moveTo);
-                File.Move(t.Result.Pop().Item1, moveTo);
+                File.Move(rs.Item1, moveTo);
 
                 if (url.Scheme == "content")
                     context.ContentResolver.Delete(url, null, null);
@@ -711,7 +720,7 @@ namespace App1.Droid
         /// <param name="isCanceled">if set to <c>true</c> [is canceled].</param>
         /// <param name="media">The media.</param>
         /// <exception cref="System.ArgumentNullException">media</exception>
-        public MediaPickedEventArgs(int id, bool isCanceled, MediaFile media = null)
+        public MediaPickedEventArgs(int id, bool isCanceled, MediaFile[] media = null)
         {
             RequestId = id;
             IsCanceled = isCanceled;
@@ -744,7 +753,7 @@ namespace App1.Droid
         /// Gets the media.
         /// </summary>
         /// <value>The media.</value>
-        public MediaFile Media { get; private set; }
+        public MediaFile[] Media { get; private set; }
         #endregion Public Properties
 
         #region Public Methods
@@ -752,9 +761,9 @@ namespace App1.Droid
         /// To the task.
         /// </summary>
         /// <returns>Task&lt;MediaFile&gt;.</returns>
-        public Task<MediaFile> ToTask()
+        public Task<MediaFile[]> ToTask()
         {
-            var tcs = new TaskCompletionSource<MediaFile>();
+            var tcs = new TaskCompletionSource<MediaFile[]>();
 
             if (IsCanceled)
                 tcs.SetCanceled();

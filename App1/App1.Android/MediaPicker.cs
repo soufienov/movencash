@@ -248,7 +248,7 @@ namespace App1.Droid
                 else
                 {
                  
-                    tcs.SetResult(e.Media);
+                    tcs.SetResult(e.Media[1]);
                    
                 }
             };
