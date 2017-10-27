@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoogleLogin.Views;
+using System;
 using Xamarin.Forms;
 
 namespace App1.Views
@@ -8,14 +9,14 @@ namespace App1.Views
 
         public MainCsPage()
         {
-            Title = "Facebook Login";
+            Title = "Google Login";
             BackgroundColor = Color.White;
 
             var loginButton = new Button
             {
-                Text = "Login with Facebook",
+                Text = "Login with Google",
                 TextColor = Color.White,
-                BackgroundColor = Color.FromHex("#01579B"),
+                BackgroundColor = Color.FromHex("#db4437"),
                 Font = Font.BoldSystemFontOfSize(26),
                 FontSize = 26
             };
@@ -29,7 +30,7 @@ namespace App1.Views
                 {
                     new Label
                     {
-                        Text = "Login with Facebook API",
+                        Text = "Login with Google API",
                         FontSize = 66,
                         TextColor = Color.Black
                     },
@@ -40,7 +41,7 @@ namespace App1.Views
 
         private async void LoginWithFacebook_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new FacebookProfileCsPage());
+            await Navigation.PushAsync(new GoogleProfileCsPage());
         }
     }
 }

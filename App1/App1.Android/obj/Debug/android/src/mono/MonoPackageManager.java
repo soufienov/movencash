@@ -102,6 +102,7 @@ class MonoPackageManager_Resources {
 		"App1.dll",
 		"ExifLib.dll",
 		"FormsViewGroup.dll",
+		"Newtonsoft.Json.dll",
 		"Plugin.CurrentActivity.dll",
 		"Plugin.Media.Abstractions.dll",
 		"Plugin.Media.dll",
@@ -123,6 +124,7 @@ class MonoPackageManager_Resources {
 		"Xamarin.Android.Support.v7.Palette.dll",
 		"Xamarin.Android.Support.v7.RecyclerView.dll",
 		"Xamarin.Android.Support.Vector.Drawable.dll",
+		"Xamarin.Auth.dll",
 		"Xamarin.Forms.Core.dll",
 		"Xamarin.Forms.Labs.dll",
 		"Xamarin.Forms.Platform.Android.dll",
@@ -135,7 +137,6 @@ class MonoPackageManager_Resources {
 		"XLabs.Platform.dll",
 		"XLabs.Platform.Droid.dll",
 		"XLabs.Serialization.dll",
-		"Newtonsoft.Json.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

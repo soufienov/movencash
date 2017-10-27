@@ -3,13 +3,14 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             <Button Command="{Binding TakePictureCommand}" Text="Take Picture" />
             <Button Command="{Binding SelectPictureCommand}" Text="Select Image from Picture Library" />
             <Button Command="{Binding SelectVideoCommand}" Text="Select Video from Picture Library " />
-            <Image Source="{Binding ImageSource}" VerticalOptions="CenterAndExpand" />
-            <Image Source="{Binding ImageSource}" VerticalOptions="CenterAndExpand" />
-        </StackLayout>
-      
+            <Image Source="{Binding ImageSource}" x:Name="image0" VerticalOptions="CenterAndExpand" />
+                <Image Source="camera.png" x:Name="image1" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+      </ScrollView>
     </ContentPage.Content>
 </ContentPage>

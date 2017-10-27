@@ -191,3 +191,5 @@ C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1.Android\
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1.Android\obj\Debug\res\drawable\camera.png
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1.Android\bin\Debug\Xamarin.Auth.dll

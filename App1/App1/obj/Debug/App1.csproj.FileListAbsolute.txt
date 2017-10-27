@@ -159,7 +159,6 @@ C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debu
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.MainPage.xaml.g.cs
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.App.xaml.g.cs
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.RegisterPage.xaml.g.cs
-C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.LoginPage.xaml.g.cs
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.ItemPage.xaml.g.cs
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.AnnoncePage.xaml.g.cs
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.NouvelleAnnonce.xaml.g.cs
@@ -168,3 +167,5 @@ C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debu
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Controls.CheckBoxPage.xaml.g.cs
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.dll
 C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.pdb
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\bin\Debug\Xamarin.Auth.dll
+C:\Users\user\Documents\Visual Studio 2017\Projects\movencash\App1\App1\obj\Debug\App1.Views.LoginPage1.xaml.g.cs
