@@ -20,12 +20,12 @@ namespace App1.ViewModels
         /// <summary>
         /// The picture chooser.
         /// </summary>
-        private IMediaPicker _mediaPicker;
+        private App1.Controls.IMediaPicker _mediaPicker;
 
         /// <summary>
         /// The image source.
         /// </summary>
-        private ImageSource[] _imageSource;
+        public ImageSource[] _imageSource;
 
         /// <summary>
         /// The video info.
@@ -56,7 +56,7 @@ namespace App1.ViewModels
         /// Initializes a new instance of the <see cref="CameraViewModel" /> class.
         /// </summary>
         public ImagesViewModel()
-        { _imageSource = new ImageSource[6];
+        { _imageSource = new ImageSource[6] {"camera.png", "camera.png", "camera.png", "camera.png", "camera.png", "camera.png" };
             Setup();
                 
         }
@@ -65,18 +65,76 @@ namespace App1.ViewModels
         /// Gets or sets the image source.
         /// </summary>
         /// <value>The image source.</value>
+        /// 
+        #region imagesources
         public ImageSource ImageSource
         {
             get
             {
-                return _imageSource[0];
+                return _imageSource[0] ?? "camera.png";
             }
             set
             {
                 SetProperty(ref _imageSource[0], value);
             }
         }
-
+        public ImageSource ImageSource1
+        {
+            get
+            {
+                return _imageSource[1] ?? "camera.png";
+            }
+            set
+            {
+                SetProperty(ref _imageSource[1], value);
+            }
+        }
+        public ImageSource ImageSource2
+        {
+            get
+            {
+                return _imageSource[2] ?? "camera.png";
+            }
+            set
+            {
+                SetProperty(ref _imageSource[2], value);
+            }
+        }
+        public ImageSource ImageSource3
+        {
+            get
+            {
+                return _imageSource[3] ?? "camera.png";
+            }
+            set
+            {
+                SetProperty(ref _imageSource[3], value);
+            }
+        }
+        public ImageSource ImageSource4
+        {
+            get
+            {
+                return _imageSource[4]??"camera.png";
+            }
+            set
+            {
+                SetProperty(ref _imageSource[4], value);
+            }
+        }
+        public ImageSource ImageSource5
+        {
+            get
+            {
+                return _imageSource[5] ?? "camera.png";
+            }
+            set
+            {
+                SetProperty(ref _imageSource[5], value);
+            }
+        }
+        #endregion imagesources
+       
         /// <summary>
         /// Gets or sets the video info.
         /// </summary>
@@ -160,8 +218,8 @@ namespace App1.ViewModels
             var device = Resolver.Resolve<IDevice>();
 
             ////RM: hack for working on windows phone? 
-            var mp = DependencyService.Get<IMediaPicker>();
-            _mediaPicker = mp ?? device.MediaPicker;
+            var mp = DependencyService.Get<App1.Controls.IMediaPicker>();
+            _mediaPicker = mp ;
         }
 
         /// <summary>
@@ -204,7 +262,7 @@ namespace App1.ViewModels
         private async Task SelectPicture()
         {
             Setup();
-            
+            ImageSource[] resultSource= new ImageSource[6];
             var options = new CameraMediaStorageOptions
             {
                 DefaultCamera = CameraDevice.Front,
@@ -213,10 +271,34 @@ namespace App1.ViewModels
             ImageSource = null;
           
                  try{
-                var mediaFile= await _mediaPicker.SelectPhotoAsync(options);
+                 await _mediaPicker.SelectPhotoAsync(options).ContinueWith((mediaFile) => {
+                   ImageSource5 = ImageSource.FromStream(() => mediaFile.Result[5].Source);
+                     ImageSource4 = ImageSource.FromStream(() => mediaFile.Result[4].Source);
+                     ImageSource3 = ImageSource.FromStream(() => mediaFile.Result[3].Source);
+                     ImageSource2 = ImageSource.FromStream(() => mediaFile.Result[2].Source);
+                     ImageSource = ImageSource.FromStream(() =>  mediaFile.Result[0].Source);
+                    
+                 });
+               // var k=mediaFile.Length;
+               /* switch (k)
+                {
+                    case 0: break;
+                    case 1:ImageSource= ImageSource.FromStream(() => mediaFile[0].Source);break;
+                    case 2: ImageSource = ImageSource.FromStream(() => mediaFile[0].Source); ImageSource1 = ImageSource.FromStream(() => mediaFile[1].Source); break;
+                    case 3: ImageSource2 = ImageSource.FromStream(() => mediaFile[2].Source); ImageSource = ImageSource.FromStream(() => mediaFile[0].Source);
+                        ImageSource1 = ImageSource.FromStream(() => mediaFile[1].Source); break;
+                    case 4: ImageSource3 = ImageSource.FromStream(() => mediaFile[3].Source); ImageSource = ImageSource.FromStream(() => mediaFile[2].Source); ImageSource.FromStream(() => mediaFile[0].Source);
+                        ImageSource1 = ImageSource.FromStream(() => mediaFile[1].Source); break;
+                    case 5: ImageSource4 = ImageSource.FromStream(() => mediaFile[4].Source); ImageSource3 = ImageSource.FromStream(() => mediaFile[3].Source); ImageSource = ImageSource.FromStream(() => mediaFile[2].Source); ImageSource.FromStream(() => mediaFile[0].Source);
+                        ImageSource1 = ImageSource.FromStream(() => mediaFile[1].Source); break;
+                    case 6: ImageSource5 = ImageSource.FromStream(() => mediaFile[5].Source); ImageSource4 = ImageSource.FromStream(() => mediaFile[4].Source); ImageSource3 = ImageSource.FromStream(() => mediaFile[3].Source); ImageSource = ImageSource.FromStream(() => mediaFile[2].Source); ImageSource.FromStream(() => mediaFile[0].Source);
+                        ImageSource1 = ImageSource.FromStream(() => mediaFile[1].Source); break;
+                    default:
+                       break;
+                }
+                */
 
-                ImageSource = ImageSource.FromStream(() => mediaFile.Source);
-                    }
+                }
             catch (System.Exception ex)
                 {
                     Status = ex.Message;
@@ -240,7 +322,7 @@ namespace App1.ViewModels
 
                 //TODO Localize
                 VideoInfo = mediaFile != null
-                                ? string.Format("Your video size {0} MB", ConvertBytesToMegabytes(mediaFile.Source.Length))
+                                ? string.Format("Your video size {0} MB", ConvertBytesToMegabytes(mediaFile[0].Source.Length))
                                 : "No video was selected";
             }
             catch (System.Exception ex)

@@ -14,10 +14,11 @@ namespace App1.Droid
     /// <summary>
     ///     Class MediaPicker.
     /// </summary>
-    public class MediaPicker : IMediaPicker
+    public class MediaPicker : App1.Controls.IMediaPicker
     {
-        private TaskCompletionSource<MediaFile> _completionSource;
+        private TaskCompletionSource<MediaFile[]> _completionSource;
         private int _requestId;
+        private TaskCompletionSource<MediaFile> _completionSource1;
 
         private static Context Context
         {
@@ -70,7 +71,7 @@ namespace App1.Droid
         /// <param name="options">The storage options.</param>
         /// <returns>Task with a return type of MediaFile.</returns>
         /// <exception cref="System.NotSupportedException">Throws an exception if feature is not supported.</exception>
-        public Task<MediaFile> SelectPhotoAsync(CameraMediaStorageOptions options)
+        public Task<MediaFile[]> SelectPhotoAsync(CameraMediaStorageOptions options)
         {
             if (!IsCameraAvailable)
             {
@@ -98,7 +99,7 @@ namespace App1.Droid
 
             options.VerifyOptions();
 
-            return TakeMediaAsync("image/*", MediaStore.ActionImageCapture, options);
+            return TakeMediaAsync1("image/*", MediaStore.ActionImageCapture, options);
         }
 
         /// <summary>
@@ -107,7 +108,7 @@ namespace App1.Droid
         /// <param name="options">Video storage options.</param>
         /// <returns>Task with a return type of MediaFile.</returns>
         /// <exception cref="System.NotSupportedException">Throws an exception if feature is not supported.</exception>
-        public Task<MediaFile> SelectVideoAsync(VideoMediaStorageOptions options)
+        public Task<MediaFile[]> SelectVideoAsync(VideoMediaStorageOptions options)
         {
             if (!IsCameraAvailable)
             {
@@ -134,7 +135,7 @@ namespace App1.Droid
 
             options.VerifyOptions();
 
-            return TakeMediaAsync("video/*", MediaStore.ActionVideoCapture, options);
+            return TakeMediaAsync1("video/*", MediaStore.ActionVideoCapture, options);
         }
 
         /// <summary>
@@ -148,8 +149,8 @@ namespace App1.Droid
         /// </summary>
         /// <value>The on error.</value>
         public EventHandler<MediaPickerErrorArgs> OnError { get; set; }
-        EventHandler<MediaPickerArgs> IMediaPicker.OnMediaSelected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        EventHandler<MediaPickerErrorArgs> IMediaPicker.OnError { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        EventHandler<App1.Controls.MediaPickerArgs> App1.Controls.IMediaPicker.OnMediaSelected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        EventHandler<App1.Controls.MediaPickerErrorArgs> App1.Controls.IMediaPicker.OnError { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// Creates the media intent.
@@ -212,11 +213,11 @@ namespace App1.Droid
         /// <param name="options">The options.</param>
         /// <returns>Task with a return type of MediaFile.</returns>
         /// <exception cref="System.InvalidOperationException">Only one operation can be active at a time.</exception>
-        private Task<MediaFile> TakeMediaAsync(string type, string action, MediaStorageOptions options)
+        private Task<MediaFile[]> TakeMediaAsync(string type, string action, MediaStorageOptions options)
         {
             var id = GetRequestId();
            
-            var ntcs = new TaskCompletionSource<MediaFile>(id);
+            var ntcs = new TaskCompletionSource<MediaFile[]>(id);
             if (Interlocked.CompareExchange(ref _completionSource, ntcs, null) != null)
             {
                 throw new InvalidOperationException("Only one operation can be active at a time");
@@ -248,7 +249,7 @@ namespace App1.Droid
                 else
                 {
                  
-                    tcs.SetResult(e.Media[1]);
+                    tcs.SetResult(e.Media);
                    
                 }
             };
@@ -257,9 +258,53 @@ namespace App1.Droid
            i++;
             return ntcs.Task;
         }
+        private Task<MediaFile> TakeMediaAsync1(string type, string action, MediaStorageOptions options)
+        {
+            var id = GetRequestId();
 
-        
+            var ntcs = new TaskCompletionSource<MediaFile>(id);
+            if (Interlocked.CompareExchange(ref _completionSource1, ntcs, null) != null)
+            {
+                throw new InvalidOperationException("Only one operation can be active at a time");
+            }
 
-      
+            var i = 0;
+            Context.StartActivity(new Intent(CreateMediaIntent(id, type, action, options)));
+
+            EventHandler<MediaPickedEventArgs> handler = null;
+            handler = (s, e) =>
+            {
+                var tcs = Interlocked.Exchange(ref _completionSource, null);
+
+                MediaPickerActivity.MediaPicked -= handler;
+
+                if (e.RequestId != id)
+                {
+                    return;
+                }
+
+                if (e.Error != null)
+                {
+                    tcs.SetException(e.Error);
+                }
+                else if (e.IsCanceled)
+                {
+                    tcs.SetCanceled();
+                }
+                else
+                {
+
+                    tcs.SetResult(e.Media);
+
+                }
+            };
+
+            MediaPickerActivity.MediaPicked += handler;
+            i++;
+            return ntcs.Task;
+        }
+
+
+
     }
 }

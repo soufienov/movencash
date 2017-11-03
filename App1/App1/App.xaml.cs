@@ -17,7 +17,7 @@ namespace App1
             InitializeComponent();
             // _NavPage = new NavigationPage(new LoginPage1());
             //  MainPage = _NavPage;
-            MainPage = new NavigationPage(new MainCsPage());
+            MainPage = new Images();
         }
 
         protected override void OnStart()

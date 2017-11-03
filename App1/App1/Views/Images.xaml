@@ -9,7 +9,11 @@
             <Button Command="{Binding SelectPictureCommand}" Text="Select Image from Picture Library" />
             <Button Command="{Binding SelectVideoCommand}" Text="Select Video from Picture Library " />
             <Image Source="{Binding ImageSource}" x:Name="image0" VerticalOptions="CenterAndExpand" />
-                <Image Source="camera.png" x:Name="image1" VerticalOptions="CenterAndExpand" />
+                <Image Source="{Binding ImageSource1}" x:Name="image1" VerticalOptions="CenterAndExpand" />
+                <Image Source="{Binding ImageSource2}" x:Name="image2" VerticalOptions="CenterAndExpand" />
+                <Image Source="{Binding ImageSource3}" x:Name="image3" VerticalOptions="CenterAndExpand" />
+                <Image Source="{Binding ImageSource4}" x:Name="image4" VerticalOptions="CenterAndExpand" />
+                <Image Source="{Binding ImageSource5}" x:Name="image5" VerticalOptions="CenterAndExpand" />
             </StackLayout>
       </ScrollView>
     </ContentPage.Content>

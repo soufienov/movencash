@@ -30,7 +30,7 @@ namespace App1.Controls
         /// </summary>
         /// <param name="options">The storage options.</param>
         /// <returns>Task&lt;IMediaFile&gt;.</returns>
-        Task<MediaFile> SelectPhotoAsync(CameraMediaStorageOptions options);
+        Task<MediaFile[]> SelectPhotoAsync(CameraMediaStorageOptions options);
 
         /// <summary>
         /// Takes the picture.
@@ -44,7 +44,7 @@ namespace App1.Controls
         /// </summary>
         /// <param name="options">The options.</param>
         /// <returns>Task&lt;IMediaFile&gt;.</returns>
-        Task<MediaFile> SelectVideoAsync(VideoMediaStorageOptions options);
+        Task<MediaFile[]> SelectVideoAsync(VideoMediaStorageOptions options);
 
         /// <summary>
         /// Takes the video asynchronous.
